@@ -16,7 +16,7 @@ NotesHelp is a Laravel-based application designed to assist users in managing an
 - **Backend Framework**: Laravel
 - **Frontend**: Blade Templates, Bootstrap
 - **Database**: MySQL
-- **Package Manager**: Composer, NPM
+- **Package Manager**: Composer
 - **Additional Tools**: Web3Forms for contact form functionality
 
 
@@ -25,17 +25,16 @@ NotesHelp is a Laravel-based application designed to assist users in managing an
 ### Prerequisites
 
 1. Ensure the following are installed on your system:
-   - PHP (>= 8.0)
+   - PHP 
    - Composer
-   - Node.js and NPM
    - MySQL
-2. A web server like Apache or Nginx.
+2. A web server like Apache.
 
 ### Steps
 
 1. **Clone the Repository**:
    ```bash
-   git clone https://github.com/Shahzad-Ali-44/NotesHelp.git
+   git clone <repository_url>
    cd NotesHelp
    ```
 
