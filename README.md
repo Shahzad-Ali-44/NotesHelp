@@ -9,6 +9,8 @@ NotesHelp is a Laravel-based application designed to assist users in managing an
 - Profile management.
 - Contact form to reach support.
 - Responsive and user-friendly design.
+- Search bar to find notes on the welcome page.
+- Admin page with default credentials.
 
 
 ## Technologies Used
@@ -34,7 +36,7 @@ NotesHelp is a Laravel-based application designed to assist users in managing an
 
 1. **Clone the Repository**:
    ```bash
-   git clone <repository_url>
+   git clone https://github.com/Shahzad-Ali-44/NotesHelp.git
    cd NotesHelp
    ```
 
@@ -111,7 +113,15 @@ To enable the contact form functionality, follow these steps:
 2. **Notes Management**:
    - Upload notes via the "Upload Notes" section.
    - View or delete notes from your profile.
-3. **Contact Support**:
+   - Uploaded notes will be displayed on the homepage and the user profile page.
+3. **Search Notes**:
+   - Use the search bar on the welcome page to find notes by their title or content.
+4. **Admin Page**:
+   - Access the admin page using default credentials:
+     - Username: `admin`
+     - Password: `admin`
+   - To update the admin username or password, modify the `adminLogin` function in the `users` controller.
+5. **Contact Support**:
    - Use the contact form to send messages to the support team.
 
 
