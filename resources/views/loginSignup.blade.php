@@ -2,16 +2,21 @@
 <html lang="en">
 
 <head>
+
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <link rel="shortcut icon" href="" />
-    <title>NotesHelp</title>
+    <meta name="description"
+        content="Log in to your NotesHelp account to upload, download, and manage study notes. Join a community of learners today!">
+        <meta name="keywords"
+        content="NotesHelp, free notes, student notes, online study materials, download notes, study resources, university notes, academic notes, login in, sign up">
+    <link rel="canonical" href="https://noteshelp.rf.gd/loginSignup">
+    <link rel="icon" type="image/png" href="https://noteshelp.rf.gd/favicon.png">
+    <title>NotesHelp - Login/Signup</title>
     <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap.css') }}" />
     <link href="{{ asset('css/font-awesome.min.css') }}" rel="stylesheet" />
     <link href="{{ asset('css/style.css') }}" rel="stylesheet" />
-    <script src="path/to/owl.carousel.min.js"></script>
-    <script type="text/javascript" src="{{ asset('js/custom.js') }}"></script>
+   
     <style>
             body::-webkit-scrollbar {
             width: 10px;
@@ -66,7 +71,8 @@
 
     <!-- this is Login section -->
     <section class="formcontainer">
-        <!-- Display validation errors, if any -->
+       
+
         @if ($errors->any())
             <div class="alert alert-danger" role="alert">
                 <ul>
@@ -84,9 +90,6 @@
                 </div>
             @endif
         @endif
-    
-    
-    
 
         @if (session('LoggedIn'))
             @if (session('LoggedIn') == 'false')
@@ -119,11 +122,7 @@
                     <label for="signup" class="slide signup">Signup</label>
                     <div class="slider-tab"></div>
                 </div>
-
-
-
                 <div class="form-inner">
-
                     <form action="/auth" class="login" method="post">
                         @csrf
                         <div class="field">
@@ -141,8 +140,6 @@
                             Not a member? <a href="#">Signup now</a>
                         </div>
                     </form>
-
-
 
                     <form action="/signup" class="signup" method="post" >
                         @csrf
@@ -169,15 +166,19 @@
     <section class="footer_section">
         <div class="container">
             <p>
-                NotesHelp &copy; <span id="displayYear"></span> All Rights Reserved
-            </p>
+            NotesHelp &copy; <span id="displayYear"></span> | All Rights Reserved | Developed by <a
+          href="https://www.linkedin.com/in/shahzad-ali-8817632ab/" style="text-decoration: underline;" target="_blank"
+          rel="noopener noreferrer">Shahzad Ali</a>         
+           </p>
         </div>
     </section>
 
     <!-- js for Loginform -->
+    <script src="path/to/owl.carousel.min.js"></script>
     <script type="text/javascript" src="{{ asset('js/jquery-3.4.1.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/bootstrap.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/custom.js') }}"></script>
+
     <script>
         const loginText = document.querySelector(".title-text .login");
         const loginForm = document.querySelector("form.login");

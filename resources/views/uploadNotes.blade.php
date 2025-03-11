@@ -83,23 +83,7 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav  ">
                         <li class="nav-item active">
-                            <a class="nav-link" href="/welcome">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ url('contactform') }}">Contact us</a>
-                        </li>
-                        <li class="nav-item">
-                            <div class="dropdown nav-link">
-                                <button type="button" class="btn btn-success dropdown-toggle" data-bs-toggle="dropdown"
-                                    aria-expanded="false">
-                                    {{ session('username') }}
-                                </button>
-                                <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="{{ url('profile') }}"><i class="fa fa-user"
-                                                aria-hidden="true"></i> Profile</a></li>
-                                    <li><a class="dropdown-item" href="/logout">Logout</a></li>
-                                </ul>
-                            </div>
+                            <a class="nav-link" href="" style="color: #fff;">Upload Notes</a>
                         </li>
                     </ul>
                 </div>
@@ -166,23 +150,24 @@
                             <form class="col-md-10" action="/upload" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 <div class="mb-3 mt-4">
-                                    <label for="Notes" class="form-label"><b>Select file (pdf)</b></label>
-                                    <input type="file" class="form-control border-1 border-black" name="notes"
+                                    <label for="Notes" class="form-label"><b>Select file (PDF, Max Size: 5mb)</b></label>
+                                    <input type="file" class="form-control border-1 border-info" name="notes"
                                         id="Notes" required>
                                 </div>
                                 <div class="mb-3 mt-4">
-                                    <label for="file" class="form-label"><b>Select Thumbnail (jpg,jpeg,png)</b></label>
-                                    <input type="file" class="form-control border-1 border-black" name="thumbnail"
+                                    <label for="file" class="form-label"><b>Select Thumbnail (jpg, jpeg, png, Max Size: 5mb)</b></label>
+                                    <input type="file" class="form-control border-1 border-info" name="thumbnail"
                                         id="file" required>
                                 </div>
                                 <div class="mb-3 mt-4">
                                     <label for="Title" class="form-label"><b>Notes title:</b></label>
-                                    <input type="text" class="form-control border border-1 border-black" name="title"
+                                    <input type="text" class="form-control border border-info" name="title"
                                         id="Title" required>
                                 </div>
-                                <div class="col col-md-3">
-                                    <button type="submit" name='submit' class="btn btn-success mt-2">Upload</button>
-                                </div>
+                                
+                                    <button type="submit" name='submit' class="btn btn-info mt-2"
+                                        style="border-radius: 0%; color: white; font-weight: bold;">Upload</button>
+                               
                             </form>
                         </div>
                     </div>
@@ -199,8 +184,9 @@
     <section class="footer_section">
         <div class="container">
             <p>
-                NotesHelp &copy; <span id="displayYear"></span> All Rights Reserved
-            </p>
+                NotesHelp &copy; <span id="displayYear"></span> | All Rights Reserved | Developed by <a
+                    href="https://www.linkedin.com/in/shahzad-ali-8817632ab/" class="text-decoration-underline"
+                    target="_blank" rel="noopener noreferrer">Shahzad Ali</a> </p>
         </div>
     </section>
 
@@ -210,6 +196,58 @@
     <script type="text/javascript" src="{{ asset('js/jquery-3.4.1.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/bootstrap.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/custom.js') }}"></script>
+    <script>
+        document.getElementById("Notes").addEventListener("change", function () {
+            let file = this.files[0];
+            let maxSize = 5 * 1024 * 1024;
+
+            if (file.size > maxSize) {
+                alert("File size must be less than 5MB.");
+                this.value = "";
+            }
+        });
+
+        document.getElementById("file").addEventListener("change", function () {
+            let file = this.files[0];
+            let maxSize = 5 * 1024 * 1024;
+
+            if (file.size > maxSize) {
+                alert("File size must be less than 5MB.");
+                this.value = "";
+            }
+        });
+
+        document.addEventListener("DOMContentLoaded", function () {
+            let notesInput = document.getElementById("Notes");
+            let fileInput = document.getElementById("file");
+
+            if (notesInput) {
+                notesInput.addEventListener("change", function () {
+                    checkStorage(this);
+                });
+            }
+
+            if (fileInput) {
+                fileInput.addEventListener("change", function () {
+                    checkStorage(this);
+                });
+            }
+
+            function checkStorage(inputElement) {
+                fetch('/check-storage')
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.storageFull) {
+                            alert("Website storage is full now, please try again later.");
+                            inputElement.value = "";
+                        }
+                    })
+                    .catch(error => console.error("Error:", error));
+            }
+        });
+
+
+    </script>
 </body>
 
 </html>

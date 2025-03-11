@@ -950,7 +950,6 @@ a:focus {
 .wrapper {
   block-size: fit-content;
   overflow: hidden;
-  max-width: 390px;
   background: #fff;
   padding: 30px;
 

@@ -9,9 +9,7 @@
   width: 100%;
 }
 
-.home_banner_area .banner_inner .home_right_img {
-  padding-top: 197px;
-}
+
 
 .home_banner_area .banner_inner .home_right_img img {
   width: 100%; /* Ensures the image fills its container */
@@ -20,10 +18,10 @@
   object-fit: cover; /* Ensures the image scales well within its container */
 }
 
-.home_banner_area .banner_inner .col-lg-7 {
+/* .home_banner_area .banner_inner .col-lg-7 {
   vertical-align: middle;
   align-self: center;
-}
+} */
 
 /* Updated Banner Content Styling */
 .home_banner_area .banner_inner .banner_content {
@@ -92,7 +90,7 @@
 
 @media (max-width: 991px) {
   .home_banner_area .banner_inner .banner_content {
-    margin-top: 150px;
+    margin-top: 50px;
   }
 }
 

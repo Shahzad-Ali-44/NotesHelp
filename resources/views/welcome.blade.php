@@ -2,11 +2,18 @@
 <html lang="en">
 
 <head>
+
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <link rel="shortcut icon" href="">
-    <title>NotesHelp</title>
+    <meta name="description"
+        content="Find and download free study notes for various subjects. Explore notes shared by students on NotesHelp.">
+        <meta name="keywords"
+        content="NotesHelp, free notes, student notes, online study materials, download notes, study resources, university notes, academic notes">
+    <link rel="canonical" href="https://noteshelp.rf.gd/welcome">
+    <link rel="icon" type="image/png" href="https://noteshelp.rf.gd/favicon.png">
+    <title>NotesHelp - Best Notes Sharing Platform</title>
+
     <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap.css') }}" />
     <link href="{{ asset('css/font-awesome.min.css') }}" rel="stylesheet" />
@@ -14,6 +21,7 @@
     <link href="{{ asset('css/responsive.css') }}" rel="stylesheet" />
     <link href="{{ asset('css/search.css') }}" rel="stylesheet" />
     <link href="{{ asset('css/prof.css') }}" rel="stylesheet" />
+
     <style>
         .custom_nav-container .navbar-nav {
             margin-left: auto;
@@ -36,7 +44,6 @@
             ;
         }
 
-        @import url('https://fonts.googleapis.com/css?family=Quicksand:400,700');
 
         *,
         *::before,
@@ -45,51 +52,22 @@
         }
 
 
+        html {
+            height: 100%;
+        }
 
         body {
-            background-image: url('./images/bg.jpg');
-            color: #272727;
-            font-family: 'Quicksand', serif;
-            font-style: normal;
-            font-weight: 400;
-
+            background: url('./images/bg.jpg')no-repeat center center fixed;
+            background-size: cover;
+            min-height: 100%;
+            display: flex;
+            flex-direction: column;
         }
 
         .main {
             max-width: 1200px;
             margin: 10 auto;
         }
-
-
-
-
-
-        .btn1 {
-            color: white;
-            padding: 0.8rem;
-            font-size: 1.05rem;
-            text-transform: uppercase;
-            border-radius: 4px;
-            font-weight: 400;
-            display: block;
-            width: 85%;
-            cursor: pointer;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            background: linear-gradient(to bottom left, #00B4CC, #00718e);
-            position: absolute;
-            bottom: 15%;
-            left: 8%;
-            font-weight: bold;
-            text-align: center;
-            border-radius: 10px;
-            transition: all 0.5s ease-in-out;
-        }
-
-
-        .btn1:hover {
-            background: linear-gradient(to bottom left, #00718e, #00B4CC);
-        }
-
 
 
         .cards1 {
@@ -170,11 +148,39 @@
             width: 100%;
         }
 
+        .btn1 {
+            color: white;
+            padding: 0.8rem;
+            font-size: 1.05rem;
+            text-transform: uppercase;
+            border-radius: 4px;
+            font-weight: 400;
+            display: block;
+            width: 85%;
+            cursor: pointer;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            background: linear-gradient(to bottom left, #00B4CC, #00718e);
+            position: absolute;
+            bottom: 15%;
+            left: 8%;
+            font-weight: bold;
+            text-align: center;
+            border-radius: 10px;
+            transition: all 0.3s ease-in-out;
+        }
+
+
+        .btn1:hover {
+            background: linear-gradient(to bottom left, #00718e, #00B4CC);
+        }
+
+
         .title-container {
             max-height: 100px;
             overflow-y: auto;
             scrollbar-width: thin;
             scrollbar-color: #888 #f4f4f4;
+
         }
 
         .title-container::-webkit-scrollbar {
@@ -192,6 +198,7 @@
         }
 
 
+
         .search {
             width: 100%;
             position: relative;
@@ -201,7 +208,7 @@
 
         .searchTerm {
             width: 100%;
-            border: 3px solid #00718e;
+            border: 3px solid #fff;
             border-right: none;
             padding: 5px;
             height: 36px;
@@ -211,14 +218,14 @@
         }
 
         .searchTerm:focus {
-            color: #00718e;
+            color: #1d1364;
         }
 
         .searchButton {
             width: 40px;
             height: 36px;
-            border: 1px solid #00718e;
-            background: #00718e;
+            border: 1px solid #fff;
+            background: #1d1364;
             text-align: center;
             color: #fff;
             border-radius: 0 5px 5px 0;
@@ -283,7 +290,10 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav  ">
                         <li class="nav-item active">
-                            <a class="nav-link" href="/welcome">Home</a>
+                            <a class="nav-link" href="/">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/welcome">View Notes</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ url('contactform') }}">Contact us</a>
@@ -307,7 +317,7 @@
 
                         <li class="nav-item">
                             <div class="dropdown nav-link">
-                                <button type="button" class="btn btn-success dropdown-toggle" data-bs-toggle="dropdown"
+                                <button type="button" class="btn btn-info dropdown-toggle" data-bs-toggle="dropdown"
                                     aria-expanded="false">
                                     {{ session('username') }}
                                 </button>
@@ -330,14 +340,14 @@
             <div class="banner_inner">
                 <div class="container">
                     <div class="row">
-                        <div class="col-lg-7">
+                        <div class="col-lg-7 align-self-md-center">
                             <div class="banner_content">
                                 <h3 class="h3"><b>NotesHelp</b></h3>
-                                <h1 class="text-uppercase h1">NOTES SHARING ONLINE PLATFORM</h1>
+                                <p class="fs-1">NOTES SHARING ONLINE PLATFORM</p>
                             </div>
                         </div>
-                        <div class="col-lg-5">
-                            <div class="home_right_img">
+                        <div class="col-lg-5 py-0">
+                            <div class="home_right_img d-none d-lg-block">
                                 <img class="" src="{{ asset('images/prof.png') }}" alt="NotesHelp">
                             </div>
                         </div>
@@ -417,11 +427,12 @@
     </section>
 
     <!-- Footer -->
-    <section class="footer_section">
+    <section class="footer_section" style="margin-top: auto;">
         <div class="container">
             <p>
-                NotesHelp &copy; <span id="displayYear"></span> All Rights Reserved
-            </p>
+                NotesHelp &copy; <span id="displayYear"></span> | All Rights Reserved | Developed by <a
+                    href="https://www.linkedin.com/in/shahzad-ali-8817632ab/" class="text-decoration-underline"
+                    target="_blank" rel="noopener noreferrer">Shahzad Ali</a> </p>
         </div>
     </section>
 

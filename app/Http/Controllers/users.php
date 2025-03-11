@@ -284,7 +284,7 @@ class users extends Controller
     {
         $username = $r->input('name');
         $pass = $r->input('pass');
-        if ($username == 'shahzad' && $pass == '12') {
+        if ($username == 'admin' && $pass == 'admin') {
             session()->put('admin', 'LoggedIn');
             return view('dashboard');
         } else {

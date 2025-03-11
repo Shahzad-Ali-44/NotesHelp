@@ -52,7 +52,6 @@
             ;
         }
 
-        @import url('https://fonts.googleapis.com/css?family=Quicksand:400,700');
 
         *,
         *::before,
@@ -61,13 +60,16 @@
         }
 
 
+        html {
+            height: 100%;
+        }
 
         body {
-            background-image: url('./images/bg.jpg');
-            color: #272727;
-            font-family: 'Quicksand', serif;
-            font-style: normal;
-            font-weight: 400;
+            background: url('./images/bg.jpg')no-repeat center center fixed;
+            background-size: cover;
+            min-height: 100%;
+            display: flex;
+            flex-direction: column;
 
         }
 
@@ -79,31 +81,6 @@
 
 
 
-        .btn1 {
-            color: white;
-            padding: 0.8rem;
-            font-size: 1.05rem;
-            text-transform: uppercase;
-            border-radius: 4px;
-            font-weight: 400;
-            display: block;
-            width: 85%;
-            cursor: pointer;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            background: linear-gradient(to bottom left, #00B4CC, #00718e);
-            position: absolute;
-            bottom: 15%;
-            left: 8%;
-            font-weight: bold;
-            text-align: center;
-            border-radius: 10px;
-            transition: all 0.5s ease-in-out;
-        }
-
-
-        .btn1:hover {
-            background: linear-gradient(to bottom left, #00718e, #00B4CC);
-        }
 
         .cards1 {
             display: flex;
@@ -182,6 +159,33 @@
             height: 100%;
             width: 100%;
         }
+
+        .btn1 {
+            color: white;
+            padding: 0.8rem;
+            font-size: 1.05rem;
+            text-transform: uppercase;
+            border-radius: 4px;
+            font-weight: 400;
+            display: block;
+            width: 85%;
+            cursor: pointer;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            background: linear-gradient(to bottom left, #00B4CC, #00718e);
+            position: absolute;
+            bottom: 15%;
+            left: 8%;
+            font-weight: bold;
+            text-align: center;
+            border-radius: 10px;
+            transition: all 0.3s ease-in-out;
+        }
+
+
+        .btn1:hover {
+            background: linear-gradient(to bottom left, #00718e, #00B4CC);
+        }
+
 
         .title-container {
             max-height: 100px;
@@ -300,7 +304,10 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav  ">
                         <li class="nav-item active">
-                            <a class="nav-link" href="/welcome">Home</a>
+                            <a class="nav-link" href="/">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/welcome">View Notes</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ url('contactform') }}">Contact us</a>
@@ -310,7 +317,7 @@
                         </li>
                         <li class="nav-item">
                             <div class="dropdown nav-link">
-                                <button type="button" class="btn btn-success dropdown-toggle" data-bs-toggle="dropdown"
+                                <button type="button" class="btn btn-info dropdown-toggle" data-bs-toggle="dropdown"
                                     aria-expanded="false">
                                     {{ session('username') }}
                                 </button>
@@ -353,13 +360,11 @@
                 <div class="banner_inner">
                     <div class="container">
                         <div class="row">
-                            <div class="col-lg-7">
+                            <div class="col-lg-7 align-self-center">
                                 <div class="banner_content">
                                     <h3>Profile</h3>
-                                    <h1 class="text-uppercase">{{ $userData->name }}</h1>
-                                    <h5 class="text-lowercase">{{ $userData->email }}</h5>
-                                    <div class="d-flex align-items-center">
-                                        <a class="primary_btn" href="" data-bs-toggle="modal"
+                                    <div class="d-flex align-items-center justify-content-center">
+                                        <a class="btn btn-info" href="" data-bs-toggle="modal"
                                             data-bs-target="#exampleModal">
                                             <span>Edit Profile</span>
                                         </a>
@@ -369,7 +374,7 @@
                             </div>
                             <div class="col-lg-5">
                                 <div class="home_right_img">
-                                    <img class="" src="{{ asset('images/prof.png') }}" alt="">
+                                    <img class="d-none d-lg-block" src="{{ asset('images/prof.png') }}" alt="">
                                 </div>
                             </div>
                         </div>
@@ -390,10 +395,10 @@
                                     <div class="mb-3 row gy-2">
                                         <label for="recipient-name" class="col-form-label">Full Name:</label>
                                         <div class="col-md-8">
-                                            <input type="hidden" name="id" class="form-control"
-                                                id="recipient-name" value="{{ $userData->id }}" required>
-                                            <input type="text" name="name" class="form-control"
-                                                id="recipient-name" value="{{ $userData->name }}" required>
+                                            <input type="hidden" name="id" class="form-control" id="recipient-name"
+                                                value="{{ $userData->id }}" required>
+                                            <input type="text" name="name" class="form-control" id="recipient-name"
+                                                value="{{ $userData->name }}" required>
                                         </div>
                                         <div class="col-md-4">
                                             <button type="submit" class="iconbtn">Edit Username</button>
@@ -407,10 +412,10 @@
                                     <div class="mb-3 row gy-2">
                                         <label for="recipient-name" class="col-form-label">Email:</label>
                                         <div class="col-md-8">
-                                            <input type="hidden" name="id" class="form-control"
-                                                id="recipient-name" value="{{ $userData->id }}" required>
-                                            <input type="email" name="email" class="form-control"
-                                                id="recipient-name" value="{{ $userData->email }}" required>
+                                            <input type="hidden" name="id" class="form-control" id="recipient-name"
+                                                value="{{ $userData->id }}" required>
+                                            <input type="email" name="email" class="form-control" id="recipient-name"
+                                                value="{{ $userData->email }}" required>
                                         </div>
                                         <div class="col-md-4">
                                             <button type="submit" class="iconbtn">Edit Email</button>
@@ -424,10 +429,10 @@
                                     <div class="mb-3 row gy-2">
                                         <label for="recipient-name" class="col-form-label">Password:</label>
                                         <div class="col-md-8">
-                                            <input type="hidden" name="id" class="form-control"
-                                                id="recipient-name" value="{{ $userData->id }}" required>
-                                            <input type="text" name="pass" class="form-control"
-                                                id="recipient-name" value="{{ session('pass') }}" required>
+                                            <input type="hidden" name="id" class="form-control" id="recipient-name"
+                                                value="{{ $userData->id }}" required>
+                                            <input type="text" name="pass" class="form-control" id="recipient-name"
+                                                value="{{ session('pass') }}" required>
                                         </div>
                                         <div class="col-md-4">
                                             <button type="submit" class="iconbtn">Edit Password</button>
@@ -439,8 +444,7 @@
 
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary"
-                                    data-bs-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                             </div>
                         </div>
                     </div>
@@ -453,8 +457,7 @@
 
     <section class="py-5">
         <div class="container">
-            <div class="card mb-5"
-                style="background: linear-gradient(to bottom left, #0d96a9 40%, #0bec99 100%);
+            <div class="card mb-5" style="background: linear-gradient(to bottom left, #0d96a9 40%, #0bec99 100%);
             color: white; text-align: center;">
                 <div class="card-body">
                     <h2 class="mb-0">Uploaded Notes:</h2>
@@ -469,26 +472,26 @@
                 <div class="main">
                     <ul class="cards1">
                         @foreach ($notesData as $note)
-                            <li class="cards_item1">
-                                <div class="card1">
-                                    @php
-                                        $imagePath = asset("storage/uploads/{$note->notesImg}");
-                                    @endphp
-                                    <div class="card_image1"><img class="img1" src="{{ $imagePath }}"
-                                            alt="{{ $note->notesName }}"></div>
-                                    <div class="card_content1">
-                                        <div class="card-body1">
-                                            <div class="title-container" style="max-height: 100px; overflow-y: auto;">
-                                                <h2 class="card_title1">
-                                                    Title: {{ $note->notesTitle }}
-                                                </h2>
-                                            </div>
+                                                <li class="cards_item1">
+                                                    <div class="card1">
+                                                        @php
+                                                            $imagePath = asset("storage/uploads/{$note->notesImg}");
+                                                        @endphp
+                                                        <div class="card_image1"><img class="img1" src="{{ $imagePath }}"
+                                                                alt="{{ $note->notesName }}"></div>
+                                                        <div class="card_content1">
+                                                            <div class="card-body1">
+                                                                <div class="title-container" style="max-height: 100px; overflow-y: auto;">
+                                                                    <h2 class="card_title1">
+                                                                        Title: {{ $note->notesTitle }}
+                                                                    </h2>
+                                                                </div>
 
-                                            <a href="/deleteNotes/{{ $note->Id }}" class="btn1 card_btn1">delete
-                                                Note</a>
-                                        </div>
-                                    </div>
-                            </li>
+                                                                <a href="/deleteNotes/{{ $note->Id }}" class="btn1 card_btn1">delete
+                                                                    Note</a>
+                                                            </div>
+                                                        </div>
+                                                </li>
                         @endforeach
                     </ul>
                 </div>
@@ -501,11 +504,12 @@
     </section>
 
     <!-- Footer -->
-    <section class="footer_section">
+    <section class="footer_section" style="margin-top: auto;">
         <div class="container">
             <p>
-                NotesHelp &copy; <span id="displayYear"></span> All Rights Reserved
-            </p>
+            NotesHelp &copy; <span id="displayYear"></span> | All Rights Reserved | Developed by <a
+          href="https://www.linkedin.com/in/shahzad-ali-8817632ab/" class="text-decoration-underline" target="_blank"
+          rel="noopener noreferrer">Shahzad Ali</a>            </p>
         </div>
     </section>
 
