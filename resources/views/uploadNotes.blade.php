@@ -150,12 +150,12 @@
                             <form class="col-md-10" action="/upload" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 <div class="mb-3 mt-4">
-                                    <label for="Notes" class="form-label"><b>Select file (PDF, Max Size: 5mb)</b></label>
+                                    <label for="Notes" class="form-label"><b>Select file (PDF)</b></label>
                                     <input type="file" class="form-control border-1 border-info" name="notes"
                                         id="Notes" required>
                                 </div>
                                 <div class="mb-3 mt-4">
-                                    <label for="file" class="form-label"><b>Select Thumbnail (jpg, jpeg, png, Max Size: 5mb)</b></label>
+                                    <label for="file" class="form-label"><b>Select Thumbnail (jpg, jpeg, png)</b></label>
                                     <input type="file" class="form-control border-1 border-info" name="thumbnail"
                                         id="file" required>
                                 </div>
