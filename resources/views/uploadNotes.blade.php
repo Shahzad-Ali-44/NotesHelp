@@ -196,58 +196,7 @@
     <script type="text/javascript" src="{{ asset('js/jquery-3.4.1.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/bootstrap.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/custom.js') }}"></script>
-    <script>
-        document.getElementById("Notes").addEventListener("change", function () {
-            let file = this.files[0];
-            let maxSize = 5 * 1024 * 1024;
-
-            if (file.size > maxSize) {
-                alert("File size must be less than 5MB.");
-                this.value = "";
-            }
-        });
-
-        document.getElementById("file").addEventListener("change", function () {
-            let file = this.files[0];
-            let maxSize = 5 * 1024 * 1024;
-
-            if (file.size > maxSize) {
-                alert("File size must be less than 5MB.");
-                this.value = "";
-            }
-        });
-
-        document.addEventListener("DOMContentLoaded", function () {
-            let notesInput = document.getElementById("Notes");
-            let fileInput = document.getElementById("file");
-
-            if (notesInput) {
-                notesInput.addEventListener("change", function () {
-                    checkStorage(this);
-                });
-            }
-
-            if (fileInput) {
-                fileInput.addEventListener("change", function () {
-                    checkStorage(this);
-                });
-            }
-
-            function checkStorage(inputElement) {
-                fetch('/check-storage')
-                    .then(response => response.json())
-                    .then(data => {
-                        if (data.storageFull) {
-                            alert("Website storage is full now, please try again later.");
-                            inputElement.value = "";
-                        }
-                    })
-                    .catch(error => console.error("Error:", error));
-            }
-        });
-
-
-    </script>
+    
 </body>
 
 </html>
