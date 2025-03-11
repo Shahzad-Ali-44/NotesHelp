@@ -125,24 +125,6 @@ To enable the contact form functionality, follow these steps:
    - Use the contact form to send messages to the support team.
 
 
-## Screenshots
-
-### Home Page
-![Home Page](public/screenshots/homepage.png)
-*This is the home page of the project.*
-
-### Upload Notes Page
-![Upload Notes Page](public/screenshots/uploadNotes.png)
-*This is the upload notes page of the project.*
-
-### Profile Page
-![Profile Page](public/screenshots/profile.png)
-*This is the profile management section where users can view and edit their information.*
-
-### Contact Form
-![Contact Form](public/screenshots/contactform.png)
-*This is the contact form where users can send messages to the support team.*
-
 
 ## Directory Structure
 
