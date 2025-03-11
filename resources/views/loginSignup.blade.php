@@ -33,6 +33,17 @@
         body::-webkit-scrollbar-thumb:hover {
             background-color: #005a6b;
         }
+        html {
+            height: 100%;
+        }
+
+        body {
+            min-height: 100%;
+            display: flex;
+            flex-direction: column;
+            background-color: #1d1364;
+
+        }
     </style>
 </head>
 
@@ -163,7 +174,7 @@
     </section>
 
     <!-- this is footer of Loginform -->
-    <section class="footer_section">
+    <section class="footer_section" style="margin-top: auto;">
         <div class="container">
             <p>
             NotesHelp &copy; <span id="displayYear"></span> | All Rights Reserved | Developed by <a

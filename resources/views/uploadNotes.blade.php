@@ -22,6 +22,7 @@
             margin: 0;
             display: flex;
             flex-direction: column;
+            background-color: #eee;
         }
 
 
@@ -181,7 +182,7 @@
 
 
     <!-- Footer -->
-    <section class="footer_section">
+    <section class="footer_section" style="margin-top: auto;">
         <div class="container">
             <p>
                 NotesHelp &copy; <span id="displayYear"></span> | All Rights Reserved | Developed by <a
