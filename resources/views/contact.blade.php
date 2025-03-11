@@ -43,7 +43,8 @@
 
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#ffffff">
     <meta name="description"
         content="Get in touch with us! Contact NotesHelp for inquiries, support, or feedback. We're here to assist you with any questions. Reach out via email, phone, or our contact form.">
     <meta name="keywords"
@@ -71,16 +72,19 @@
         body::-webkit-scrollbar-thumb:hover {
             background-color: #005a6b;
         }
-        html {
+
+        html{
+            background-color: #ffffff;  
             height: 100%;
         }
 
         body {
             min-height: 100%;
+            margin: 0;
             display: flex;
             flex-direction: column;
             background-color: #1d1364;
-
+            padding-bottom: env(safe-area-inset-bottom);
         }
     </style>
 </head>
