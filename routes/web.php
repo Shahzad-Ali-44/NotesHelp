@@ -27,6 +27,10 @@ Route::get('/admin', function () {
     return view('adminLogin');
 });
 
+Route::get('/forgetpassword', function () {
+    return view('forgetpassword');
+});
+
 Route::get('/viewUsers',[users::class,'viewUsers']);
 
 Route::get('/viewNotes',[users::class,'viewNotes']);
@@ -62,6 +66,10 @@ Route::post('/editPassword',[users::class,'editPassword']);
 Route::post('/upload',[users::class,'upload']);
 
 Route::post('/auth',[users::class,'login']);
+
+Route::post('/changepassword',[users::class,'changepassword']);
+
+Route::post('/newpassword',[users::class,'newpassword']);
 
 
 Route::post('/adminLogin',[users::class,'adminLogin']);

@@ -42,6 +42,36 @@ class users extends Controller
     }
 
 
+    public function newpassword(Request $request)
+    {
+
+
+        $username = $request->input('username');
+        $email = $request->input('email');
+        $newPassword = bcrypt($request->input('pass'));
+
+        // Check if the user exists
+        $user = DB::table('users')
+            ->where('email', $email)
+            ->where('name', $username)
+            ->first();
+
+        if ($user) {
+            // Update the password
+            DB::table('users')
+            ->where('name', $username)
+                ->where('email', $email)
+                ->update(['password' => $newPassword]);
+
+            // Set success message
+            Session::flash('newpassword', "true");
+            return Redirect::to('loginSignup');
+        } 
+
+
+    }
+
+
     public function editUsername(Request $request)
     {
 
@@ -148,6 +178,28 @@ class users extends Controller
             return Redirect::to('loginSignup');
         }
     }
+
+    public function changepassword(Request $request)
+    {
+        $username = $request->input('username');
+        $email = $request->input('email');
+
+        $user = DB::table('users')
+            ->where([
+                ['email', '=', $email],
+                ['name', '=', $username]
+            ])
+            ->first();
+
+        if ($user) {
+            return view('changepassword', compact('user'));
+        } else {
+
+            Session::flash('LoggedIn', 'false');
+            return Redirect::to('forgetpassword');
+        }
+    }
+
     public function check(Request $r)
     {
         if (session('LoggedIn') == 'true') {

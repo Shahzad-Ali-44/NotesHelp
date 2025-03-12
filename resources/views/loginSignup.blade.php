@@ -104,6 +104,15 @@
                     &#x2022; Account created! successfully.
                 </div>
             @endif
+        @endif 
+        
+        
+        @if (session('newpassword'))
+            @if (session('newpassword') == 'true')
+                <div class="alert alert-success" role="alert">
+                    &#x2022; Password updated successfully.
+                </div>
+            @endif
         @endif
 
         @if (session('LoggedIn'))
@@ -146,20 +155,20 @@
                         <div class="field">
                             <input type="password" placeholder="Password" name="pass" required />
                         </div>
-                        <div class="pass-link"><a href="#">Forgot password?</a></div>
+                        <div class="pass-link"><a style="color: #1d1364;" href="/forgetpassword">Forgot password?</a></div>
                         <div class="field btn">
                             <div class="btn-layer"></div>
                             <input type="submit" value="Login" name="submit" />
                         </div>
                         <div class="signup-link">
-                            Not a member? <a href="#">Signup now</a>
+                            Not a member? <a style="color: #1d1364; text-decoration: underline;" href="#">Signup now</a>
                         </div>
                     </form>
 
                     <form action="/signup" class="signup" method="post" >
                         @csrf
                         <div class="field">
-                            <input type="text" placeholder="Username" name="name" />
+                            <input type="text" placeholder="Username" name="name" required />
                         </div>
                         <div class="field">
                             <input type="email" placeholder="Email Address" name="email" required />
